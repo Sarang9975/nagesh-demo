@@ -12,6 +12,8 @@ import Dialer from './Dialer';
 import About from './About';
 import { type TabParamList } from './types';
 import { getEnvVariable } from '../util/env';
+import Preferences from './Preferences';
+import Transcription from './Transcription';
 
 const HomeSource = require('../../assets/icons/home.png');
 const HomeSelectedSource = require('../../assets/icons/home-selected.png');
@@ -91,11 +93,25 @@ const TabNavigator: React.FC = () => {
           screenOptions={{
             headerShown: false,
           }}>
-          <Tab.Screen name="Home" component={Home} options={homeTabOptions} />
+          <Tab.Screen 
+            name="Preferences"
+            component={Preferences} 
+            options={homeTabOptions} 
+          />
+          <Tab.Screen
+            name="Home" 
+            component={Home}
+            options={homeTabOptions}
+          />
           <Tab.Screen
             name="Dialer"
             component={Dialer}
             options={dialerTabOptions}
+          />
+          <Tab.Screen 
+            name="Transcription"
+            component={Transcription} 
+            options={homeTabOptions} 
           />
           {isAboutPageEnabled && (
             <Tab.Screen
